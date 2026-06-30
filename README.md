@@ -30,7 +30,7 @@ src/
     ├── P2Oyun.java          # Ana oyun ekranı (oyun mantığı, skor/log tabloları)
     └── SifreEkrani.java     # Giriş öncesi şifre doğrulama ekranı
 ```
-
+Oyunun çalışması için gereken metin ve resim dosyaları aşağıdaki sabit dizinlerde tutulur:
 ```
 C:\P2Oyun\
 ├── Resimler\
@@ -42,18 +42,7 @@ C:\P2Oyun\
     ├── oyunlar.txt      # Geçmiş oyun skorlarının tutulduğu dosya
     ├── sifre.txt        # Giriş/temizleme şifresi
     └── log.txt          # Giriş ve işlem logları
-```
-\`\`\`
 
-Oyunun çalışması için gereken metin ve resim dosyaları aşağıdaki sabit dizinlerde tutulur:
-
-\`\`\`
-C:\P2Oyun\TXTDosyalar\kelimeler.txt   # Tahmin edilecek kelime listesi
-C:\P2Oyun\TXTDosyalar\oyunlar.txt     # Oyun sonuçları (skor kaydı)
-C:\P2Oyun\TXTDosyalar\sifre.txt       # Giriş şifresi
-C:\P2Oyun\TXTDosyalar\log.txt         # Giriş/işlem logları
-C:\P2Oyun\Resimler\                   # Yanlış tahmin görselleri (1.jpg, 2.jpg, ...)
-\`\`\`
 
 ## ⚙️ Nasıl Çalışır?
 
