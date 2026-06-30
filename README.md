@@ -24,11 +24,25 @@ Java Swing ile geliştirilmiş, şifre korumalı, dosya tabanlı skor ve log tak
 
 ## 📂 Proje Yapısı
 
-\`\`\`
+```
 src/
 └── com/mycompany/p2oyun/
-    ├── P2Oyun.java         # Ana oyun ekranı (oyun mantığı, skor/log tabloları)
-    └── SifreEkrani.java    # Giriş öncesi şifre doğrulama ekranı
+    ├── P2Oyun.java          # Ana oyun ekranı (oyun mantığı, skor/log tabloları)
+    └── SifreEkrani.java     # Giriş öncesi şifre doğrulama ekranı
+```
+
+```
+C:\P2Oyun\
+├── Resimler\
+│   ├── 1.jpg            # İlk aşama görseli
+│   ├── ...
+│   └── 11.jpg           # Son aşama (Oyun Bitti) görseli
+└── TXTDosyalar\
+    ├── kelimeler.txt    # Tahmin edilecek kelime havuzu
+    ├── oyunlar.txt      # Geçmiş oyun skorlarının tutulduğu dosya
+    ├── sifre.txt        # Giriş/temizleme şifresi
+    └── log.txt          # Giriş ve işlem logları
+```
 \`\`\`
 
 Oyunun çalışması için gereken metin ve resim dosyaları aşağıdaki sabit dizinlerde tutulur:
