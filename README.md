@@ -42,7 +42,7 @@ C:\P2Oyun\
     ├── oyunlar.txt      # Geçmiş oyun skorlarının tutulduğu dosya
     ├── sifre.txt        # Giriş/temizleme şifresi
     └── log.txt          # Giriş ve işlem logları
-
+  ```
 
 ## ⚙️ Nasıl Çalışır?
 
