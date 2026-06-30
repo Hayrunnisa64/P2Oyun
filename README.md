@@ -1,57 +1,78 @@
-# 🚗 P2Oyun - Gelişmiş Adam Asmaca Oyunu
+# 🎮 P2Oyun
 
-<!-- Teknoloji Rozetleri -->
-![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-![Swing](https://img.shields.io/badge/Java_Swing-007396?style=for-the-badge&logo=java&logoColor=white)
-![File_IO](https://img.shields.io/badge/File_I%2FO-430098?style=for-the-badge&logo=databricks&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+### Adam Asmaca Oyunu
 
-Bu proje, **Java Swing** mimarisi ve nesne yönelimli programlama prensipleri kullanılarak geliştirilmiş; dinamik kelime havuzu, detaylı oyun logları, skor takibi ve şifre korumalı yönetim mekanizmalarına sahip gelişmiş bir masaüstü **Adam Asmaca** uygulamasıdır.
-
----
-
-## 📌 İçindekiler
-* [✨ Özellikler](#-özellikler)
-* [🛠️ Kullanılan Teknolojiler](#️-kullanılan-teknolojiler)
-* [📂 Proje Dosya Yapısı](#-proje-dosya-yapısı)
-* [⚙️ Kurulum ve Çalıştırma](#️-kurulum-ve-çalıştırma)
-* [📸 Ekran Görüntüleri](#-ekran-görüntüleri)
-
----
+Java Swing ile geliştirilmiş, şifre korumalı, dosya tabanlı skor ve log takibi yapan bir Adam Asmaca (Hangman) masaüstü oyunudur. Programlama 2 dersi kapsamında geliştirilmiştir.
 
 ## ✨ Özellikler
 
-| Özellik | Açıklama |
-| :--- | :--- |
-| 🎲 **Dinamik Kelime Seçimi** | Oyun başladığında `kelimeler.txt` dosyasından rastgele kelime seçilir ve harf sayısına göre dinamik arayüz (`*`) oluşturulur. |
-| 🔠 **Esnek Tahmin Sistemi** | Kullanıcı ister tek tek harf tahmini yapar, isterse doğrudan kelime tahminiyle risk alabilir. |
-| ⏳ **Zamanlayıcı (Timer)** | Swing `Timer` sınıfı kullanılarak oyun süresi anlık olarak saniye cinsinden hesaplanır ve ekranda gösterilir. |
-| 📊 **Skor ve Veri Yönetimi** | Tamamlanan oyunların tarih, süre ve kazanma durumları `oyunlar.txt` dosyasına kalıcı olarak kaydedilir ve tabloda listelenir. |
-| 🔓 **Güvenli Yönetici Paneli** | Skor geçmişi ve sistem logları, `sifre.txt` içerisindeki şifre doğrulanarak yetkili kişilerce temizlenebilir. |
-
----
+- 🔐 **Şifre Korumalı Giriş:** Oyuna girmeden önce şifre ekranı karşılıyor; 3 yanlış denemede program otomatik kapanıyor.
+- 🔤 **Harf ve Kelime Tahmini:** Hem tek tek harf hem de doğrudan kelimenin tamamı tahmin edilebiliyor.
+- 🖼️ **Görsel Geri Bildirim:** Her yanlış tahminde adam asmaca resmi bir adım ilerliyor (11 hak).
+- ⏱️ **Süre Sayacı:** `javax.swing.Timer` ile oyun süresi saniye saniye gösteriliyor.
+- 💾 **Skor Kaydı:** Oyun sonuçları (tarih, süre, sonuç) `.txt` dosyasına kaydediliyor ve tabloda listeleniyor.
+- 📝 **Log Sistemi:** Şifre girişleri (başarılı/başarısız) ve şifre oluşturma işlemleri loglanıyor.
+- 🗑️ **Şifreli Temizleme:** Skorlar ve loglar, şifre doğrulaması yapılmadan silinemiyor.
+- 📑 **Sekmeli Arayüz:** `JTabbedPane` ile "Eski Skorlar", "Loglar" ve "Oyun Oynama" sekmeleri arasında geçiş.
 
 ## 🛠️ Kullanılan Teknolojiler
 
-*   **Dil ve Çalışma Zamanı:** Java (JDK 17)
-*   **Grafik Arayüz (GUI):** Java Swing (JFrame, JTabbedPane, JTable, JPanel, FlowLayout)
-*   **Asenkron İşlemler:** `javax.swing.Timer` (Süre takibi için)
-*   **Veri Yönetimi:** `java.nio.file.Files`, `java.io.FileWriter` (Dinamik Dosya I/O İşlemleri)
+- **Java 17**
+- **Java Swing** (JFrame, JTabbedPane, JTable, JPasswordField, JOptionPane, Timer)
+- **java.nio.file** (`Files.readAllLines`) ve **java.io** (`FileWriter`) ile dosya işlemleri
+- **NetBeans** GUI Builder (GroupLayout)
 
----
+## 📂 Proje Yapısı
 
-## 📂 Proje Dosya Yapısı
+\`\`\`
+src/
+└── com/mycompany/p2oyun/
+    ├── P2Oyun.java         # Ana oyun ekranı (oyun mantığı, skor/log tabloları)
+    └── SifreEkrani.java    # Giriş öncesi şifre doğrulama ekranı
+\`\`\`
 
-Uygulamanın yerel makinede stabil çalışabilmesi ve dosya okuma/yazma işlemlerini hatasız yürütebilmesi için aşağıdaki dizin şemasının kurulması gerekmektedir:
+Oyunun çalışması için gereken metin ve resim dosyaları aşağıdaki sabit dizinlerde tutulur:
 
-```text
-C:\P2Oyun\
-├── Resimler\
-│   ├── 1.jpg          # İlk aşama görseli
-│   ├── ...
-│   └── 11.jpg         # Son aşama (Oyun Bitti) görseli
-└── TXTDosyalar\
-    ├── kelimeler.txt  # Oyunda çıkacak kelime havuzu
-    ├── oyunlar.txt    # Geçmiş oyun skorlarının tutulduğu dosya
-    ├── sifre.txt      # Admin paneli temizleme şifresi
-    └── log.txt        # Sistem işlem geçmişi logları
+\`\`\`
+C:\P2Oyun\TXTDosyalar\kelimeler.txt   # Tahmin edilecek kelime listesi
+C:\P2Oyun\TXTDosyalar\oyunlar.txt     # Oyun sonuçları (skor kaydı)
+C:\P2Oyun\TXTDosyalar\sifre.txt       # Giriş şifresi
+C:\P2Oyun\TXTDosyalar\log.txt         # Giriş/işlem logları
+C:\P2Oyun\Resimler\                   # Yanlış tahmin görselleri (1.jpg, 2.jpg, ...)
+\`\`\`
+
+## ⚙️ Nasıl Çalışır?
+
+1. Program açıldığında önce **SifreEkrani** gösterilir.
+   - Şifre dosyası boşsa kullanıcıdan yeni bir şifre oluşturması istenir.
+   - Şifre dosyası doluysa girilen şifre kayıtlı şifre ile karşılaştırılır.
+   - 3 yanlış denemede program kapanır.
+2. Şifre doğrulandıktan sonra ana ekran (**P2Oyun**) açılır.
+3. **"OYUN MENÜSÜ"** üzerinden *"Oyuna Başla"* seçilince `kelimeler.txt` dosyasından rastgele bir kelime seçilir ve harf sayısı kadar `*` içeren etiketler oluşturulur.
+4. Kullanıcı tek harf ya da tüm kelimeyi tahmin edebilir:
+   - Doğru harf bulunursa ilgili `*` karakterin yerini alır.
+   - Yanlış tahminde asma görseli bir adım ilerler; 11 yanlış hakta oyun kaybedilir.
+5. Oyun bitince sonuç (`KAZANDI` / `KAYBETTİ`), süresiyle birlikte `oyunlar.txt` dosyasına kaydedilir ve "Eski Skorlar" tablosunda görüntülenir.
+6. "Eski Skorlar" ve "Loglar" sekmelerindeki **TEMİZLE** butonları, yalnızca doğru şifre girildiğinde ilgili dosyayı ve tabloyu sıfırlar.
+
+## 📸 Ekran Görüntüleri
+
+### Şifre Ekranı
+![Şifre Ekranı](sifre_ekrani.png)
+
+### Oyun Oynama
+![Oyun Oynama](oyun_oynama.png)
+![Oyun Oynama 2](oyun_oynama_2.png)
+
+### Eski Skorlar
+![Eski Skorlar](eski_skorlar.png)
+
+### Loglar
+![Loglar](loglar.png)
+
+## ▶️ Kurulum ve Çalıştırma
+
+1. Projeyi NetBeans ile açın (paket adı: `com.mycompany.p2oyun`).
+2. Yukarıdaki dizin yapısını (`C:\P2Oyun\...`) oluşturup gerekli `.txt` dosyalarını ve resimleri (`1.jpg`–`11.jpg`) ekleyin.
+3. `P2Oyun.java` dosyasını çalıştırın.
+4. Açılan şifre ekranından giriş yapıp oyuna başlayın.
